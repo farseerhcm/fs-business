@@ -1,0 +1,35 @@
+{
+  "name": "fs-business",
+  "version": "3.0.1",
+  "description": "A busi Component Library",
+  "main": "index.js",
+  "files": [
+    "crossRule",
+    "pageModelMixin",
+    "pageLazyMixin",
+    "orgProcesser",
+    "printPre",
+    "initiateFlow",
+    "mdchildpage",
+    "mdlayout",
+    "mdpage",
+    "ifbpRole",
+    "gridLayout",
+    "gridLayout-fis",
+    "ifbpDomPrint",
+    "ifbpDocumentPreview",
+    "ifbpBtnLine",
+    "assignsubmit",
+    "mobile",
+    "tableHeightMixin"
+  ],
+  "scripts": {},
+  "repository": {},
+  "keywords": [],
+  "dependencies": {
+    "element-resize-detector": "^1.1.10",
+    "interactjs": "^1.3.4"
+  },
+  "peerDependencies": {},
+  "devDependencies": {}
+}
