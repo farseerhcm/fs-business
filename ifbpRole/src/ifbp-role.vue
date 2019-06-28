@@ -141,9 +141,10 @@
 			    size: 10,
 		        currentPage: 1,
 		        totalElements: 0,
-		        selected: [],
-		        tempalteTableData:[],
-
+						selected: [],
+						tempalteTableData:{
+						},
+		        
                 strFieldName: [],
                 searchData:"",
                 selectionMethods:{
@@ -262,7 +263,7 @@
 	       },
 
 	         handleTabSelectChange(selection) {	 
-						 
+	    
                 this.selected = selection;
       
                 
