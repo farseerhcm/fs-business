@@ -262,7 +262,7 @@
 	       },
 
 	         handleTabSelectChange(selection) {	 
-						 
+	    
                 this.selected = selection;
       
                 
