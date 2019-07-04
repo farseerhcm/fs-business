@@ -1,12 +1,12 @@
 <template>
   <div style="display: inline-block;">
-    <el-cascader  v-if="orgTreeData && orgTreeData.length > 0"
+    <el-cascader  v-if="corpTreeData && corpTreeData.length > 0"
                   ref="orgCascaderRef"
                   hideBorder
                   hideRight
                   expand-trigger="hover"
-                  :options="orgTreeData"
-                  v-model="defaultOrg"
+                  :options="corpTreeData"
+                  v-model="defaultCorp"
                   :props="cascaderProps"
                   placeholder="请选择组织"
                   :show-all-levels="false"
@@ -96,8 +96,8 @@ export default {
         children: 'children',
       },
 
-      orgTreeData: [],
-      defaultOrg: [],
+      corpTreeData: [],
+      defaultCorp: [],
 
       deptTreeData: [],
       defaultDept: [],
@@ -124,14 +124,14 @@ export default {
         if (res.data.status === true) {
           let options = res.data.data.options;
           if (options && options.length > 0) {
-            this.orgTreeData = options;
+            this.corpTreeData = options;
           } else {
-            this.orgTreeData = [];
+            this.corpTreeData = [];
           }
           let defaultValue = res.data.data.defaultValue;
 
           if (defaultValue && defaultValue.length > 0) {
-            this.defaultOrg.push(defaultValue[0].id);
+            this.defaultCorp.push(defaultValue[0].id);
             this.clickOrg(defaultValue[0]);
           }
 
