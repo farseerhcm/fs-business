@@ -9,6 +9,7 @@
     "pageLazyMixin",
     "orgProcesser",
     "printPre",
+    "fsCorpCascader",
     "initiateFlow",
     "mdchildpage",
     "mdlayout",
