@@ -174,7 +174,7 @@ export default {
           } else {
             this.deptTreeData = [];
           }
-          this.changeDept(this.deptTreeData);
+          this.changeDept(this.defaultDept);
 
         } else {
           this.$message({ message: res.data.msg, type: "error" });
