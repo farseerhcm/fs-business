@@ -28,7 +28,9 @@
                   placeholder="请选择部门"
                   :show-all-levels="false"
                   :not-leaf-selectable="true"
-                  @change="changeDept">
+                  @change="changeDept"
+                  @active-item-icon-click="clickOrgIcon"
+    >
     </el-cascader>
   </div>
 </template>
@@ -88,6 +90,7 @@ export default {
         corpCascader: 'corp/corpCascader',
         listNextLayerOrg: 'corp/corpNextLayerCascader',
         deptCascader: 'dept/deptCascader',
+        listNextLayerOrg: 'dept/deptNextLayerCascader',
       },
 
       cascaderProps: {
@@ -217,6 +220,29 @@ export default {
         }
       }).catch(() => {
         this.$message({ message: "[组织级联选择器]下一层组织失败！", type: "error" });
+      });
+    },
+    // 获取下一层组织
+    listNextLayerDept: function (item, dept_id) {
+      let params = {
+        dept_id: dept_id,
+      };
+
+      this.$http({
+        url: this.permissionPrefix + this.requestUrl.listNextLayerDept,
+        method: "post",
+        params: params,
+      }).then((res) => {
+        if (res.data.status === true) {
+          let children = res.data.data.children;
+          if (children && children.length > 0) {
+            item.children = children;
+          }
+        } else {
+          this.$message({ message: res.data.msg, type: "error" });
+        }
+      }).catch(() => {
+        this.$message({ message: "[部门级联选择器]下一层部门失败！", type: "error" });
       });
     },
 
