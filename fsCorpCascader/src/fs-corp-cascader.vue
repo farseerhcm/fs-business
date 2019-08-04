@@ -90,7 +90,7 @@ export default {
         corpCascader: 'corp/corpCascader',
         listNextLayerOrg: 'corp/corpNextLayerCascader',
         deptCascader: 'dept/deptCascader',
-        listNextLayerOrg: 'dept/deptNextLayerCascader',
+        listNextLayerDept: 'dept/deptNextLayerCascader',
       },
 
       cascaderProps: {
