@@ -29,7 +29,7 @@
                   :show-all-levels="false"
                   :not-leaf-selectable="true"
                   @change="changeDept"
-                  @active-item-icon-click="clickOrgIcon"
+                  @active-item-icon-click="clickDeptIcon"
     >
     </el-cascader>
   </div>
@@ -221,6 +221,17 @@ export default {
       }).catch(() => {
         this.$message({ message: "[组织级联选择器]下一层组织失败！", type: "error" });
       });
+    },
+    // 点击部门右侧icon触发的事件
+    clickDeptIcon (val, item, level) {
+      if (item) {
+        let dept_id = item.id;
+        if (item.children && item.children.length > 0) {
+          return;
+        } else {
+          this.listNextLayerDept(item, dept_id);
+        }
+      }
     },
     // 获取下一层组织
     listNextLayerDept: function (item, dept_id) {
