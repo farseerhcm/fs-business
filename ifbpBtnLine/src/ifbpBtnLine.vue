@@ -75,20 +75,6 @@ export default {
       default: function() {
         return [];
       },
-      //自定义函数判断有无visible和disable属性,没有的增加默认值;
-      validator: function(arr) {
-        if (arr.length > 0) {
-          $.each(arr, function(btnKey, btn) {
-            if (typeof btn.visible === "undefined") {
-              btn.visible = true;
-            }
-            if (typeof btn.disabled === "undefined") {
-              btn.disabled = false;
-            }
-          });
-        }
-        return true;
-      }
     },
     //右侧图标按钮;
     iconBtnArr: {
@@ -96,17 +82,6 @@ export default {
       default: function() {
         return [];
       },
-      //自定义函数判读，增加默认属性
-      validator: function(arr) {
-        if (arr.length > 0) {
-          $.each(arr, function(btnKey, btn) {
-            if (typeof btn.visible === "undefined") {
-              btn.visible = true;
-            }
-          });
-        }
-        return true;
-      }
     },
     textAlign: {
       type: String,
@@ -120,11 +95,12 @@ export default {
   data() {
       let iconBtnArr=[];
       this.iconBtnArr.forEach(val=>{
-          iconBtnArr.push(Object.assign({validator:true},val))
+          iconBtnArr.push(Object.assign({visible:true},val))
       });
+      //自定义函数判断有无visible和disable属性,没有的增加默认值;
       let textBtnArr=[];
       this.textBtnArr.forEach(val=>{
-          textBtnArr.push(Object.assign({validator:true,disabled:false},val))
+          textBtnArr.push(Object.assign({visible:true,disabled:false},val))
       });
     return {
       width:0,
