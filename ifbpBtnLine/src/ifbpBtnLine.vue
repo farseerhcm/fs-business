@@ -3,7 +3,7 @@
          左侧 文字按钮区域 
         --><div class="font-btns" id="fontBtnSec" v-if="showTextBtns">
             <!-- 默认最多显示3个文字按钮 -->
-            <template v-for="(btn,index) in leftTextBtns">
+            <div v-for="(btn,index) in leftTextBtns">
                 <!-- 如果是按钮组,则渲染 下拉组件 -->
                 <el-dropdown v-if="btn.itemArr" :key="index" @command="subBtnCommandFn" menu-align="start">
                     <span>{{btn.title}}<i class="el-icon-caret-bottom el-icon--right"></i></span>
@@ -15,7 +15,7 @@
                 </el-dropdown>
                 <!--如果非按钮组,则渲染 button -->
                 <el-button v-else :key="index"  type="text" @click="handleBtnClick(btn)" :disabled="btn.disabled">{{btn.title}}</el-button>    
-            </template>
+            </div>
             <template v-if="leftDropDownBtns.length>0">
                 <!-- 按钮过多时,显示为下拉按钮 -->
                 <el-dropdown @command="moreBtnDropDown" menu-align="start">
@@ -118,10 +118,18 @@ export default {
     }
   },
   data() {
+      let iconBtnArr=[];
+      this.iconBtnArr.forEach(val=>{
+          iconBtnArr.push(Object.assign({validator:true},val))
+      });
+      let textBtnArr=[];
+      this.textBtnArr.forEach(val=>{
+          textBtnArr.push(Object.assign({validator:true,disabled:false},val))
+      });
     return {
       width:0,
-      currentIconBtns: this.iconBtnArr,
-      currentTextBtns: this.textBtnArr,
+      currentIconBtns: iconBtnArr,
+      currentTextBtns: textBtnArr,
       showBigSearch: true,
       showTextBtns: true,
       hasMoreBtn: false,
