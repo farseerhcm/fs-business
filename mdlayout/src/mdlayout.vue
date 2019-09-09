@@ -72,7 +72,7 @@
         var mainPt=mainPt||0;
         let windowH=$(window).height();
         let headerH=$(".header").height();
-        let contentH=windowH-headerH-mainPt;
+        let contentH=windowH-headerH-mainPt-8;
         $(".mdlayout-wrapper,.mdlayout-aside,.mdlayout-main").css("height",contentH);        
       },
       // 点击mdlayout-master的一项
